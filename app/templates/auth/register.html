@@ -4,8 +4,17 @@
         <link href="../static/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        
-        
+        <div>
+            <form action="auth/register" method="POST">
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                <input type="text" id="userName" name="userName" placeholder="Username" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="password2" name="password"2 placeholder="Retype Password" required>
+                <input type="submit" id="submit" name="submit" value="submit">
+            </form>
+        </div>
         <script src="../static/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
