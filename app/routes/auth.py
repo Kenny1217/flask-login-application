@@ -19,4 +19,6 @@ def logout():
 
 @auth_blueprint.route('/auth/forgotpassword', methods=['GET', 'POST'])
 def forgotPassword():
+    if request.method == 'POST':
+        email = request.values.get('email')
     return render_template('./auth/forgotpassword.html')
