@@ -2,8 +2,13 @@
     <head>
         <title></title>
         <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="prefetch" href="{{ url_for('/auth.signin') }}">
+    
     </head>
     <body>
+
+        <a href="{{ url_for('/auth.signin') }}" class="btn btn-primary" >Signin</a>
 
         <script src="../static/js/bootstrap.bundle.min.js"></script>
     </body>
