@@ -3,15 +3,15 @@
         <title></title>
         <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 
-        <link rel="prefetch" href="{{ url_for('/auth.signin') }}">
-        <link rel="prefetch" href="{{ url_for('/auth.signup') }}">
+        <link rel="prefetch" href="{{ url_for('auth.signin') }}">
+        <link rel="prefetch" href="{{ url_for('auth.signup') }}">
 
     </head>
     <body>
 
-        <a href="{{ url_for('/auth.signin') }}" class="btn btn-primary">Sign In</a>
+        <a href="{{ url_for('auth.signin') }}" class="btn btn-primary">Sign In</a>
 
-        <a href="{{ url_for('/auth.signup') }}" class="btn btn-primary">Sign Up</a>
+        <a href="{{ url_for('auth.signup') }}" class="btn btn-primary">Sign Up</a>
 
         <script src="../static/js/bootstrap.bundle.min.js"></script>
     </body>
