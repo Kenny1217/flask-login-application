@@ -10,6 +10,22 @@ def signup():
         email = request.form.get('email')
         password = request.form.get('password')
         password2 = request.form.get('password2')
+
+        # Validate entered data
+
+        # Check for blank fields
+        # Check if username or email exists
+
+        if password != password2:
+            return render_template('./auth/signup.html')
+
+        password_bytes = password.encode('utf-8')
+        password_salt = bcrypt.gensalt()
+        password_hash = bcrypt.hashpw(password_bytes, password_salt)
+
+        # Store user to database
+
+        return redirect(url_for('auth.signin'))
     return render_template('./auth/signup.html')
 
 @auth_blueprint.route('/signin', methods=['GET', 'POST'])
