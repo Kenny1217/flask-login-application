@@ -9,6 +9,7 @@ USER root
 RUN useradd --shell /bin/bash -d "$FLASK_APP_HOME" -m -u 1001 "$FLASK_APP_USER"
 
 COPY ./requirements.txt "$FLASK_APP_HOME"
+COPY ./scripts/entrypoint.sh "$FLASK_APP_HOME"
 
 RUN pip3 install -r "$FLASK_APP_HOME/requirements.txt"
 
@@ -19,3 +20,5 @@ EXPOSE 8080
 USER $FLASK_APP_USER
 
 WORKDIR "$FLASK_APP_HOME"
+
+ENTRYPOINT ["./entrypoint.sh"]

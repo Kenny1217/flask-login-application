@@ -1,0 +1,10 @@
+services:
+
+  flask_container:
+    container_name: flask_container
+    build:
+      context: ./flask_container/docker
+    ports:
+      - 8080:8080
+    volumes:
+      - ./application:/usr/local/flask_user/
