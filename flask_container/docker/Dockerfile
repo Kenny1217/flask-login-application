@@ -1,8 +1,7 @@
 FROM python:3.13-slim-bookworm
 
-ARG FLASK_APP_USER="flask_app"
-ARG FLASK_APP_HOME_DIRECTORY="/usr/local/$FLASK_APP_USER"
-ENV FLASK_APP_HOME="$FLASK_APP_HOME_DIRECTORY"
+ENV FLASK_APP_USER="flask_app"
+ENV FLASK_APP_HOME="/usr/local/$FLASK_APP_USER"
 
 USER root
 
@@ -13,6 +12,7 @@ COPY ./scripts/entrypoint.sh "$FLASK_APP_HOME"
 
 RUN pip3 install -r "$FLASK_APP_HOME/requirements.txt"
 
+RUN chmod +x "$FLASK_APP_HOME/entrypoint.sh"
 RUN chown -R "$FLASK_APP_USER": "$FLASK_APP_HOME"
 
 EXPOSE 8080

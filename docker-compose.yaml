@@ -7,4 +7,4 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./application:/usr/local/flask_user/
+      - ./flask_app:/usr/local/flask_app/app
