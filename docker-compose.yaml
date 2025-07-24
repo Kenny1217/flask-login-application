@@ -4,6 +4,8 @@ services:
     container_name: flask_container
     build:
       context: ./flask_container/docker
+    env_file:
+      - .env
     ports:
       - 8080:8080
     volumes:
