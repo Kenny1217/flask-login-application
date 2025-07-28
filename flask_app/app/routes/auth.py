@@ -13,3 +13,12 @@ def signup():
         confirm_password = signup_form.confirm_password.data
 
     return render_template('./auth/signup.html', form=signup_form)
+
+@auth_blueprint.route('/login', methods=['GET','POST'])
+def login():
+    login_form = LoginForm()
+    if request.method == 'POST':
+        username = login_form.username.data
+        password = login_form.password.data
+
+    return render_template('./auth/login/html', form=login_form)
