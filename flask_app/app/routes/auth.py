@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from ..forms.auth_forms import SignupForm, LoginForm
+from ..forms.auth_forms import SignupForm, LoginForm, ForgotPasswordForm
 
 auth_blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -21,4 +21,12 @@ def login():
         username = login_form.username.data
         password = login_form.password.data
 
-    return render_template('./auth/login/html', form=login_form)
+    return render_template('./auth/login.html', form=login_form)
+
+@auth_blueprint.route('/forgotpassword', methods=['GET','POST'])
+def forgotpassword():
+    forgotpassword_form = ForgotPasswordForm()
+    if request.method == 'POST':
+        email = forgotpassword_form.email.data
+
+    return render_template('./auth/forgotpassword.html', form=forgotpassword_form)

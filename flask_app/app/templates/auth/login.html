@@ -14,7 +14,10 @@
                 <div>
                 {{ form.password.label() }}
                 {{ form.password(placeholder="Password") }}
-                </div>          
+                </div>    
+                <div>
+                    <a href="{{ url_for('auth.forgotpassword') }}">Forgot Password?</a>
+                </div>
                 <div>
                 {{ form.submit() }}
                 </div>
