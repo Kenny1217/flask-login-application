@@ -11,6 +11,21 @@ services:
     volumes:
       - ./database/init:/docker-entrypoint-initdb.d
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - flask_app_network
     restart: always
+  backend:
+    container_name: flask-backend
+    build: 
+      context: ./backend/docker/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    networks:
+      - flask_app_network
 volumes:
   pgdata:
+networks:
+  flask_app_network:
+    driver: bridge
