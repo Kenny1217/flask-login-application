@@ -1,10 +1,17 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
+from ..forms.auth_forms import SignUpForm
 
 auth_blueprint = Blueprint('auth', __name__, url_prefix = '/auth')
 
 @auth_blueprint.route('/signup', methods = ['GET', 'POST'])
 def signup():
-    return render_template('./auth/signup.html')
+    signup_form = SignUpForm()
+    if request.method == 'POST':
+        username = ""
+        email = ""
+        password = ""
+        confirm_password = ""
+    return render_template('./auth/signup.html', form = signup_form)
 
 @auth_blueprint.route('/signin', methods = ['GET', 'POST'])
 def signin():
