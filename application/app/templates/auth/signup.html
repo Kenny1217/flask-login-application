@@ -4,7 +4,27 @@
         <link href="../static/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-
+        <div>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div>
+                {{ form.username.label() }}
+                {{ form.username(placeholder = "Username") }}
+                </div>
+                <div>
+                {{ form.email.label() }}
+                {{ form.email(placeholder = "Email") }}
+                </div>
+                <div>
+                {{ form.password.label() }}
+                {{ form.password(placeholder = "Password") }}
+                </div>
+                <div>
+                {{ form.confirm_password.label() }}
+                {{ form.confirm_password(placeholder = "Retype Password") }}
+                </div>
+            </form>
+        </div>
         <script src="../static/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
